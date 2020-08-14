@@ -427,48 +427,48 @@ public class MergeManager {
 //                System.out.println("c");
                 tbrNeedsToBeSaved = true;
                 
-                System.out.println("--------------Review Algorithm Stats-----------");
-                
-                
-                int temp = 0;
-                for(String id: command.ids) {
-                	Collection<Row> rowsForThisId = idToRows.get(id);
-//                	if (rowsForThisId == null) {
-//                        System.out.println("No Row for this ID");
-//                        continue;
+//                System.out.println("--------------Review Algorithm Stats-----------");
+//                
+//                
+//                int temp = 0;
+//                for(String id: command.ids) {
+//                	Collection<Row> rowsForThisId = idToRows.get(id);
+////                	if (rowsForThisId == null) {
+////                        System.out.println("No Row for this ID");
+////                        continue;
+////                    }
+//                	for(Row row: rowsForThisId) {
+//                		if(Integer.parseInt(row.get("Rid")) >= temp) {
+//                			temp = Integer.parseInt(row.get("Rid"));
+//                		}
+//                	}
+//                }
+//                
+//                System.out.println("If existing rows are changed then temp!=0 otherwise it is 0:- "+ temp);
+//                System.out.println("These rows will be given rid = "+ uniqueval);
+//                if(temp != 0) {
+//                	for(String id: command.ids) {
+//                    	Collection<Row> rowsForThisId = idToRows.get(id);
+//                    	for(Row row: rowsForThisId) {
+//                    		System.out.println("Candidate Name:- " + row.get("Candidate"));
+//                    		row.set("Rid", Integer.toString(temp));
+//                    		System.out.println("Its Given Rid:- " + row.get("Rid"));
+//                    	}
 //                    }
-                	for(Row row: rowsForThisId) {
-                		if(Integer.parseInt(row.get("Rid")) >= temp) {
-                			temp = Integer.parseInt(row.get("Rid"));
-                		}
-                	}
-                }
-                
-                System.out.println("If existing rows are changed then temp!=0 otherwise it is 0:- "+ temp);
-                System.out.println("These rows will be given rid = "+ uniqueval);
-                if(temp != 0) {
-                	for(String id: command.ids) {
-                    	Collection<Row> rowsForThisId = idToRows.get(id);
-                    	for(Row row: rowsForThisId) {
-                    		System.out.println("Candidate Name:- " + row.get("Candidate"));
-                    		row.set("Rid", Integer.toString(temp));
-                    		System.out.println("Its Given Rid:- " + row.get("Rid"));
-                    	}
-                    }
-                }
-                else {
-                	for(String id: command.ids) {
-                    	Collection<Row> rowsForThisId = idToRows.get(id);
-                    	for(Row row: rowsForThisId) {
-                    		System.out.println("Candidate Name:- " + row.get("Candidate"));
-                    		row.set("Rid", Integer.toString(uniqueval));
-                    		System.out.println("Its Given Rid:- " + row.get("Rid"));
-                    	}
-                    }
-                	uniqueval++;
-                }
-                
-                d.save();
+//                }
+//                else {
+//                	for(String id: command.ids) {
+//                    	Collection<Row> rowsForThisId = idToRows.get(id);
+//                    	for(Row row: rowsForThisId) {
+//                    		System.out.println("Candidate Name:- " + row.get("Candidate"));
+//                    		row.set("Rid", Integer.toString(uniqueval));
+//                    		System.out.println("Its Given Rid:- " + row.get("Rid"));
+//                    	}
+//                    }
+//                	uniqueval++;
+//                }
+//                
+//                d.save();
                 
             }   else if ("add-label".equalsIgnoreCase(command.op)) {
                 String label = command.label;
